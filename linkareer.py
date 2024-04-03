@@ -1,13 +1,13 @@
 import urllib.parse
 
 #graphql api POST 요청 request url decoding -> query로 넘어가는 variable field 확인
-encoded_str = "%7B%22filterBy%22%3A%7B%22types%22%3A%5B%22ALL%22%5D%2C%22status%22%3A%22PUBLISHED%22%7D%2C%22orderBy%22%3A%7B%22field%22%3A%22PASSED_AT%22%2C%22direction%22%3A%22DESC%22%7D%2C%22pagination%22%3A%7B%22page%22%3A1%2C%22pageSize%22%3A20%7D%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%229de3e00d7c080f21a562200ff07a8f380c724477caa7d564d356f47d8c84eb5b%22%7D%7D"
+encoded_str = "%7B%22filterBy%22%3A%7B%22organizationName%22%3A%22%22%2C%22role%22%3A%22%EA%B0%9C%EB%B0%9C%EC%9E%90%22%2C%22keyword%22%3A%22%22%2C%22types%22%3A%5B%22ALL%22%5D%2C%22status%22%3A%22PUBLISHED%22%7D%2C%22orderBy%22%3A%7B%22field%22%3A%22RELEVANCE%22%2C%22direction%22%3A%22DESC%22%7D%2C%22pagination%22%3A%7B%22page%22%3A1%2C%22pageSize%22%3A20%7D%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%229de3e00d7c080f21a562200ff07a8f380c724477caa7d564d356f47d8c84eb5b%22%7D%7D"
 decoded_str = urllib.parse.unquote(encoded_str) # -> variable
 
 # print(decoded_str)
 
 json_str = '{"filterBy":{"types":["ALL"],"status":"PUBLISHED"},"orderBy":{"field":"PASSED_AT","direction":"DESC"},"pagination":{"page":1,"pageSize":20}}&extensions={"persistedQuery":{"version":1,"sha256Hash":"9de3e00d7c080f21a562200ff07a8f380c724477caa7d564d356f47d8c84eb5b"}}'
-
+# json_str = '{"filterBy":{"organizationName":"","role":"#","keyword":"","types":["ALL"],"status":"PUBLISHED"},"orderBy":{"field":"RELEVANCE","direction":"DESC"},"pagination":{"page":1,"pageSize":20}}&extensions={"persistedQuery":{"version":1,"sha256Hash":"9de3e00d7c080f21a562200ff07a8f380c724477caa7d564d356f47d8c84eb5b"}}' # role=#부분의 #에 원하는 직무 분야의 키워드를 넣어서 보낼 수 있음.
 # URL 쿼리 문자열로 인코딩, '&'와 '='는 인코딩하지 않음
 encoded_str = urllib.parse.quote(json_str, safe='&=')
 
@@ -21,11 +21,12 @@ encoded_str = urllib.parse.quote(json_str, safe='&=')
 # 크롤링 실제 테스트
 import requests
 
-json_variable = '{"filterBy":{"types":["ALL"],"status":"PUBLISHED"},"orderBy":{"field":"PASSED_AT","direction":"DESC"},"pagination":{"page":1,"pageSize":20}}&extensions={"persistedQuery":{"version":1,"sha256Hash":"9de3e00d7c080f21a562200ff07a8f380c724477caa7d564d356f47d8c84eb5b"}}'
+# json_variable = '{"filterBy":{"types":["ALL"],"status":"PUBLISHED"},"orderBy":{"field":"PASSED_AT","direction":"DESC"},"pagination":{"page":1,"pageSize":20}}&extensions={"persistedQuery":{"version":1,"sha256Hash":"9de3e00d7c080f21a562200ff07a8f380c724477caa7d564d356f47d8c84eb5b"}}'
+json_variable = '{"filterBy":{"organizationName":"","role":"개발자","keyword":"","types":["ALL"],"status":"PUBLISHED"},"orderBy":{"field":"RELEVANCE","direction":"DESC"},"pagination":{"page":1,"pageSize":20}}&extensions={"persistedQuery":{"version":1,"sha256Hash":"9de3e00d7c080f21a562200ff07a8f380c724477caa7d564d356f47d8c84eb5b"}}' # role=#부분의 #에 원하는 직무 분야의 키워드를 넣어서 보낼 수 있음.
 encoded_str = urllib.parse.quote(json_variable, safe='&=')
 
-# url = f'https://api.linkareer.com/graphql?operationName=CoverLetterList&variables={encoded_str}' # json_variable을 직접 전달해도 문제는 생기지 않음.
-url = "https://www.jobplanet.co.kr/api/v1/job/postings/1271027"
+url = f'https://api.linkareer.com/graphql?operationName=CoverLetterList&variables={encoded_str}' # json_variable을 직접 전달해도 문제는 생기지 않음.
+
 response = requests.get(url)
 html = response.text
 print(html)
