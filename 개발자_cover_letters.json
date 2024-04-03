@@ -1,0 +1,79 @@
+{
+    "errors": [
+        {
+            "message": "Unknown type \"FilterInput\". Did you mean \"UserInput\" or \"DutyInput\"?",
+            "locations": [
+                {
+                    "line": 2,
+                    "column": 34
+                }
+            ],
+            "extensions": {
+                "code": "GRAPHQL_VALIDATION_FAILED",
+                "stacktrace": [
+                    "GraphQLError: Unknown type \"FilterInput\". Did you mean \"UserInput\" or \"DutyInput\"?",
+                    "    at Object.NamedType (/var/app/current/node_modules/graphql/validation/rules/KnownTypeNamesRule.js:65:11)",
+                    "    at Object.enter (/var/app/current/node_modules/graphql/language/visitor.js:301:32)",
+                    "    at Object.enter (/var/app/current/node_modules/graphql/utilities/TypeInfo.js:391:27)",
+                    "    at visit (/var/app/current/node_modules/graphql/language/visitor.js:197:21)",
+                    "    at validate (/var/app/current/node_modules/graphql/validation/validate.js:91:24)",
+                    "    at /var/app/current/node_modules/dd-trace/packages/datadog-instrumentations/src/graphql.js:138:27",
+                    "    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)",
+                    "    at validate (/var/app/current/node_modules/dd-trace/packages/datadog-instrumentations/src/graphql.js:133:26)",
+                    "    at processGraphQLRequest (/var/app/current/node_modules/@apollo/server/dist/cjs/requestPipeline.js:100:57)",
+                    "    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+                ]
+            }
+        },
+        {
+            "message": "Unknown type \"OrderInput\". Did you mean \"UserInput\", \"DutyInput\", or \"ReportInput\"?",
+            "locations": [
+                {
+                    "line": 2,
+                    "column": 57
+                }
+            ],
+            "extensions": {
+                "code": "GRAPHQL_VALIDATION_FAILED",
+                "stacktrace": [
+                    "GraphQLError: Unknown type \"OrderInput\". Did you mean \"UserInput\", \"DutyInput\", or \"ReportInput\"?",
+                    "    at Object.NamedType (/var/app/current/node_modules/graphql/validation/rules/KnownTypeNamesRule.js:65:11)",
+                    "    at Object.enter (/var/app/current/node_modules/graphql/language/visitor.js:301:32)",
+                    "    at Object.enter (/var/app/current/node_modules/graphql/utilities/TypeInfo.js:391:27)",
+                    "    at visit (/var/app/current/node_modules/graphql/language/visitor.js:197:21)",
+                    "    at validate (/var/app/current/node_modules/graphql/validation/validate.js:91:24)",
+                    "    at /var/app/current/node_modules/dd-trace/packages/datadog-instrumentations/src/graphql.js:138:27",
+                    "    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)",
+                    "    at validate (/var/app/current/node_modules/dd-trace/packages/datadog-instrumentations/src/graphql.js:133:26)",
+                    "    at processGraphQLRequest (/var/app/current/node_modules/@apollo/server/dist/cjs/requestPipeline.js:100:57)",
+                    "    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+                ]
+            }
+        },
+        {
+            "message": "Unknown type \"PaginationInput\". Did you mean \"Pagination\"?",
+            "locations": [
+                {
+                    "line": 2,
+                    "column": 82
+                }
+            ],
+            "extensions": {
+                "code": "GRAPHQL_VALIDATION_FAILED",
+                "stacktrace": [
+                    "GraphQLError: Unknown type \"PaginationInput\". Did you mean \"Pagination\"?",
+                    "    at Object.NamedType (/var/app/current/node_modules/graphql/validation/rules/KnownTypeNamesRule.js:65:11)",
+                    "    at Object.enter (/var/app/current/node_modules/graphql/language/visitor.js:301:32)",
+                    "    at Object.enter (/var/app/current/node_modules/graphql/utilities/TypeInfo.js:391:27)",
+                    "    at visit (/var/app/current/node_modules/graphql/language/visitor.js:197:21)",
+                    "    at validate (/var/app/current/node_modules/graphql/validation/validate.js:91:24)",
+                    "    at /var/app/current/node_modules/dd-trace/packages/datadog-instrumentations/src/graphql.js:138:27",
+                    "    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)",
+                    "    at validate (/var/app/current/node_modules/dd-trace/packages/datadog-instrumentations/src/graphql.js:133:26)",
+                    "    at processGraphQLRequest (/var/app/current/node_modules/@apollo/server/dist/cjs/requestPipeline.js:100:57)",
+                    "    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+                ]
+            }
+        }
+    ]
+}
